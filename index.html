@@ -28,7 +28,13 @@
         ul {
             list-style: none;
         }
-
+        /* Styled Text "ANUBHAV" */
+        .logo-style {
+            color: #fff;
+            font-size: 30px; /* Adjust the size of the logo text */
+            font-weight: bold;
+            text-transform: uppercase;
+        }
         nav {
             background-color: #333;
             padding: 10px;
@@ -63,6 +69,105 @@
             align-items: center;
             position: relative;
         }
+                 /* Mobile Navigation Styles */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -250px; /* Initially hide the menu off-screen */
+            width: 200px;
+            height: 380px;
+            background-color: #333;
+            padding: 50px 20px;
+            z-index: 1001;
+            transition: right 0.3s ease; /* Smooth transition for menu slide-in */
+           display: flex;
+            justify-content: center; /* Center the nav items */
+            align-items: center; /* Center the nav items vertically */
+
+        }
+
+        .mobile-nav ul {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            align-items: center; /* Center the items horizontally */
+            justify-content: center; /* Center the items vertically */
+            margin-top: 20px;
+        }
+
+        .mobile-nav ul li {
+            margin: 10px 0;
+        }
+
+        .mobile-nav ul li a {
+            color: #fff;
+            font-size: 18px;
+            text-transform: none;
+            
+        }
+        .mobile-nav ul li a:hover {
+            background-color:#444 ; /* Change background color on hover */
+            padding-left: 20px; 
+            padding-right: 20px;
+            padding-top: 10px;
+            padding-buttom: 20px; 
+        }
+
+
+        .mobile-nav .mobile-menu-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: #fff;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1002;
+            
+         }
+
+        /* Overlay Background for Mobile Nav */
+        .mobile-nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            z-index: 1000;
+        }
+
+        /* Media Query for Small Screens */
+        @media screen and (max-width: 768px) {
+            nav {
+                display: none; /* Hide the main navigation */
+            }
+
+            .mobile-nav {
+                display: block; /* Show mobile nav */
+            }
+
+            /* Show the menu when mobile nav is active */
+            .mobile-nav.active {
+                right: 0; /* Slide the menu in */
+            }
+
+            /* Show the overlay when mobile nav is active */
+            .mobile-nav-overlay.active {
+                display: block;
+            }
+        }
+        /* Media Query for Large Screens (Desktop) */
+        @media screen and (min-width: 769px) {
+            /* Hide the mobile menu icon (hamburger) on desktop view */
+            .mobile-menu-toggle {
+                display: none;
+            }
+        }
+
 
         #home::after {
             content: "";
@@ -588,6 +693,8 @@ document.querySelectorAll('.view-btn').forEach(button => {
 <body>
     <!-- Navigation -->
     <nav>
+        <div class="logo-style">ANUBHAV </div>
+
          <ul>
             
             <li><a href="#home">Home</a></li>
@@ -599,6 +706,23 @@ document.querySelectorAll('.view-btn').forEach(button => {
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
+<!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <button class="mobile-menu-toggle">☰</button>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#feedback">Feedback</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Overlay Background for Mobile Nav -->
+    <div class="mobile-nav-overlay"></div>
+
 
     <!-- Home Section -->
     <section id="home">
@@ -796,7 +920,32 @@ Whether it's developing responsive front-end designs or ensuring robust back-end
 <div class="con1"><br>
 <h2>@2025 www.Anubhavgupta.in . All Rigths Reserved.</h2></div>
 </footer> 
+<script>
+        // JavaScript to toggle the mobile menu and overlay
+        const toggleButton = document.querySelector('.mobile-menu-toggle');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const overlay = document.querySelector('.mobile-nav-overlay');
+        const mobileLinks = document.querySelectorAll('.mobile-nav ul li a');
 
+        toggleButton.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        // Close the mobile menu when any of the links are clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+        });
+
+        // Close the mobile menu when the overlay is clicked
+        overlay.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+    </script>
     <script src="scripts.js"></script>
 </body>
 </html>
