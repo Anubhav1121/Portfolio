@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Your Name">
-    <title>ANUBHAV GUPTA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="ANUBHAV">
+      <!-- Add Font Awesome CDN link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>My Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Global Styles */
@@ -28,23 +31,16 @@
         ul {
             list-style: none;
         }
-        /* Styled Text "ANUBHAV" */
-        .logo-style {
-            color: #fff;
-            font-size: 30px; /* Adjust the size of the logo text */
-            font-weight: bold;
-            text-transform: uppercase;
-        }
+
         nav {
-            background-color: #333;
-            padding: 10px;
+             background-color: #333;
+            padding: 10px 50px;
             position: sticky;
             top: 0;
             z-index: 1000;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-        }
+            align-items: center;}
 
         nav ul {
             display: flex;
@@ -60,19 +56,113 @@
             font-size: 22px;
             text-transform: uppercase;
         }
-                /* Home Section */
-        #home {
-            background: url('images/hero-bg.jpg') no-repeat center center/cover;
-            height: 100vh;
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Home Section */
+#home {
+    background-color: #000;
+    height: 100vh;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;  /* Prevents stars from overflowing */
+}
+
+/* Falling Stars Background */
+.star {
+    position: absolute;
+    width: 8px;  /* Size of the stars */
+    height: 8px;  /* Size of the stars */
+    background-color: black;
+    border-radius: 50%;
+    opacity: 0.1;  /* Increased opacity for visibility */
+    animation: fall 1s linear infinite;
+}
+
+/* Falling Stars Animation */
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) translateX(50px); /* Moves stars down */
+        opacity: 0;
+    }
+}
+
+/* Intro Section */
+.intro {
+    z-index: 2;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Name Animation */
+@keyframes nameAnimation {
+    0% {
+        color: #ffffff;
+        transform: scale(1.5);
+    }
+    50% {
+        color: #87CEEB;
+        transform: scale(1.2);
+    }
+    100% {
+        color: #FF4500;
+        transform: scale(1.3);
+    }
+}
+
+#animated-name {
+    font-size: 5em;
+    animation: nameAnimation 3s infinite alternate;
+}
+
+/* Dark Overlay */
+#home::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay for readability */
+    z-index: 2;
+}
+
+/* Optional: Styling the social icons */
+.social-button {
+    margin: 10px;
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+}
+
+.social-button:hover {
+    transform: scale(1.2);
+}
+
+
+
+        /* Styled Text "ANUBHAV" */
+        .logo-style {
             color: #fff;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
+            font-size: 30px; /* Adjust the size of the logo text */
+            font-weight: bold;
+            text-transform: uppercase;
         }
-                 /* Mobile Navigation Styles */
+         /* Mobile Navigation Styles */
         .mobile-nav {
             display: none;
             position: fixed;
@@ -87,7 +177,7 @@
            display: flex;
             justify-content: center; /* Center the nav items */
             align-items: center; /* Center the nav items vertically */
-
+     
         }
 
         .mobile-nav ul {
@@ -171,7 +261,28 @@
             }
         }
 
-
+                /* Home Section */
+        #home {
+            background: url('images/hero-bg.jpg') no-repeat center center/cover;
+            height: 100vh;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .background-container {
+  background-image: url('C:\Users\varsh\Downloads\giphy.gif'); /* Replace with your GIF's URL */
+  background-size: cover;
+  background-position: center;
+  height: 100%; /* Make the container fill the entire viewport */
+  width: 100%; /* Make the container fill the entire viewport */
+  display: flex; /* Use flexbox for easy content alignment */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+}
         #home::after {
             content: "";
             position: absolute;
@@ -181,37 +292,38 @@
             bottom: 0;
             background: rgba(0, 0, 0, 0.4); /* Dark overlay */
             z-index: 1;
+            
         }
 
         .intro {
-            z-index: 2;
-        }
+            z-index: 2;        }
         .intro p{
          font-size: 50px;
         }
         h1 {
-            font-size: 3em;
+            font-size: 1em;
             animation: fadeIn 2s ease-in-out;
         }
 
         p {
-            font-size: 1.5em;
-            animation: fadeIn 1s ease-in-out;
+            font-size: 1em;
+            animation: fadeIn 2s ease-in-out;
         }
 
         #name {
             font-weight: bold;
             color: space-between;
+            
         }
 
         /* Name Animation */
         @keyframes nameAnimation {
             0% {
-                color: #6833ff;
+                color: black;
                 transform: scale(1.5);
             }
             50% {
-                color: deeppink;
+                color: darkblue;
                 transform: scale(1.2);
             }
             100% {
@@ -225,9 +337,18 @@
             animation: nameAnimation 3s infinite alternate;
         }
 
-       
-
-        
+     /* image for home */
+ .imghome{
+   border-radius: 50%; 
+   width: 250px; 
+   height: 250px; 
+   object-fit: cover; 
+   margin-top: 20px;
+   }
+   /* Hover effect */
+        .imghome:hover{
+            transform: scale(1.1); /* Scale the image when hovered */
+        } 
         /* Social Media Links */
 .social-links {
     margin-top: 20px;
@@ -242,15 +363,15 @@
     text-decoration: none;
     background-color: #333;
     color: #fff;
-    padding: 12px 25px;
-    border-radius: 30px;
+    padding: 10px 20px;
+    border-radius: 20px;
     font-size: 1.2em;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .social-button img {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
     margin-right: 10px;
 }
 
@@ -264,33 +385,68 @@
     filter: brightness(1.2);
 } 
   
-        /* About Section */
-        #about {
-            padding: 60px 20px;
-            background-color: #fff;
-            text-align: center;
-        }
+       /* About Section */
+#about {
+    padding: 60px 20px;
+    background-color: #fff;
+    text-align: center;
+}
 
-        .about-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            margin-top: 20px;
-        }
+.abth2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+}
 
-        .about-content img {
-            border-radius: 50%;
-            width: 400px;
-            height: 400px;
-            object-fit: cover;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-left: 100px;
-        }
+.about-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Allow stacking on smaller screens */
+}
 
-        h2 {
-            margin-bottom: 20px;
-        }
+.about-content img {
+    border-radius: 50%;
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-content p {
+    max-width: 700px; /* Limiting the width for better readability */
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    text-align: left; /* Align text to the left */
+    margin-top: 20px;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column; /* Stack the image and text vertically */
+        align-items: center;
+    }
+
+    .about-content img {
+        width: 250px; /* Resize image for mobile */
+        height: 250px;
+        margin-bottom: 20px; /* Add space between image and text */
+    }
+
+    .about-content p {
+        font-size: 14px; /* Adjust font size for better readability on mobile */
+        text-align: center; /* Center align text on mobile */
+    }
+
+    .abth2 {
+        font-size: 28px; /* Slightly smaller heading for mobile */
+    }
+}
 
         /* Skills Section */
         #skills {
@@ -313,7 +469,6 @@
             font-size: 1.2em;
             transition: background-color 0.3s ease;
         }
-        
 
         .skill:hover {
             background-color: #555;
@@ -332,7 +487,9 @@
             gap: 30px;
             flex-wrap: wrap;
         }
-
+        .proh2{
+          font-size: 3em;
+         }
         .project {
             background-color: #eee;
             padding: 20px;
@@ -346,9 +503,7 @@
         .project:hover {
             transform: translateY(-20px);
         }
-        .proh2{
-              font-size: 3em;
-         }
+
         .project img {
             width: 100%;
             height: auto;
@@ -374,14 +529,13 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-         .feedh2{
-              font-size: 3em;
-         }
 
         .form-group {
             margin-bottom: 20px;
         }
-
+        .feedh2{
+              font-size: 3em;
+         }
         .form-group label {
             display: block;
             margin-bottom: 10px;
@@ -421,7 +575,7 @@
             margin-top: 20px;
             font-size: 1.2em;
         }
-
+        
         /* Contact Section */
         #contact {
             background-color: #333;
@@ -473,6 +627,11 @@
             border: 5px solid lightblue;
             padding: 1rem;
         }
+/* Hover effect */
+        .choice1:hover {
+            transform: scale(1.1); /* Scale the image when hovered */
+        }
+
         .border-hover {
             margin: 2rem;
             text-align: center;
@@ -513,47 +672,7 @@
     background-color: #2980b9;
     transform: scale(1.05);
 }
-  .footer{
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #090124;
- 
-  display: flex;
-}
-.imgf{
- border-radius: 45%;
-  width: 300px;
-  height: 300px;
-  display: block;
-  margin-left: 100px;
-  margin-right: auto;
-  float: left;
 
-}
-.con {
-  color: white;
-  margin-left: 100px;
-  margin-right: auto;
-}
-.f{
-  
-  color: white;
-  margin-left: 50px;
-  margin-right: auto;
-}
-.black{
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-  
-}
-.con1 h2{
-color: white;
-text-align: Center;
-}
- 
 /* Education Section */
 #education {
     padding: 60px 20px;
@@ -627,6 +746,114 @@ text-align: Center;
     color: #3498db;
 }
 
+/* Footer section general styling */
+.footer {
+  margin: 0;
+  padding: 0;
+  background-color: #090124;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.img-container {
+  margin-right: 20px;
+}
+
+.imgf {
+  border-radius: 30%;
+  width: 300px;
+  height: 300px;
+}
+/* Hover effect */
+        .imgf:hover {
+            transform: scale(1.1); /* Scale the image when hovered */
+        }
+.contact-info, .useful-links {
+  margin-left: 20px;
+  width: 100%;
+}
+
+.contact-info h2, .useful-links h2 {
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+/* Style the icons */
+i {
+  margin-right: 10px;
+  font-size: 20px; /* Adjust icon size */
+}
+
+/* Make links look clean */
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffcc00;
+}
+
+/* Footer bottom */
+.black {
+  background-color: #333;
+  text-align: center;
+  padding: 10px;
+}
+
+.footer-bottom h2 {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .footer {
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .imgf {
+    width: 150px;
+    height: 150px;
+  }
+
+  .contact-info, .useful-links {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .useful-links h3 {
+    font-size: 14px;
+  }
+
+  .footer-bottom h2 {
+    font-size: 12px;
+  }
+}
+
     </style>
     <script>
         // JavaScript to handle animations and interactions
@@ -635,43 +862,21 @@ text-align: Center;
         document.addEventListener('DOMContentLoaded', () => {
             const nameElement = document.getElementById('name');
             nameElement.addEventListener('mouseover', () => {
-                nameElement.style.color = '#e74c3c';
+                nameElement.style.color = 'white';
             });
             nameElement.addEventListener('mouseout', () => {
-                nameElement.style.color = '#3498db';
+                nameElement.style.color = 'black';
             });
         });
 
-        // Feedback Form Handling
-        const feedbackForm = document.getElementById('feedback-form');
-        const feedbackResponse = document.getElementById('feedback-response');
-
-        feedbackForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const name = feedbackForm.name.value;
-            const email = feedbackForm.email.value;
-            const message = feedbackForm.message.value;
-
-            // Simple validation (check if fields are not empty)
-            if (name && email && message) {
-                feedbackResponse.textContent = 'Thank you for your feedback!';
-                feedbackResponse.style.color = 'green';
-            } else {
-                feedbackResponse.textContent = 'Please fill in all the fields.';
-                feedbackResponse.style.color = 'red';
-            }
-
-            // Reset form after submission
-            feedbackForm.reset();
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
             const nameElement = document.getElementById('name');
-            const nameText = '[Your Name]';  // Replace with your name
+            const nameText = 'Anubhav Gupta'; 
+ // Replace with your name
 
             // Function to simulate typing effect
             let index = 0;
-            const typingSpeed = 150;  // Adjust typing speed here
+            const typingSpeed = 500;  // Adjust typing speed here
 
             function typeWriter() {
                 if (index < nameText.length) {
@@ -682,6 +887,7 @@ text-align: Center;
             }
 
             typeWriter();
+            
         });
   // JavaScript to handle button clicks
 document.querySelectorAll('.view-btn').forEach(button => {
@@ -691,13 +897,14 @@ document.querySelectorAll('.view-btn').forEach(button => {
     });
 });
 
-    </script>
+
+
+     </script>
 </head>
 <body>
     <!-- Navigation -->
-    <nav>
-        <div class="logo-style">ANUBHAV </div>
-
+  <div>
+    <nav><div class="logo-style">ANUBHAV </div>
          <ul>
             
             <li><a href="#home">Home</a></li>
@@ -709,7 +916,9 @@ document.querySelectorAll('.view-btn').forEach(button => {
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
-<!-- Mobile Navigation -->
+  </div>
+
+  <!-- Mobile Navigation -->
     <div class="mobile-nav">
         <button class="mobile-menu-toggle">☰</button>
         <ul>
@@ -729,13 +938,13 @@ document.querySelectorAll('.view-btn').forEach(button => {
 
     <!-- Home Section -->
     <section id="home">
-        <div class="intro"><br>
+        <div class="intro"><br><br><br><br><br>
             <h1 id="animated-name">Welcome</h1><br><br>
-            <p>I'm <span id="name">Anubhav Gupta.</span>
-            </p>
+           <div> <p>I'm <span id="name"> </span>
+            </p></div>
             <!-- Your large photo -->
             <br><br>
-            <img src="a.jpg" alt="Your Photo" style="border-radius: 50%; width: 250px; height: 250px; object-fit: cover; margin-top: 20px;"><br><br>
+            <img src="D:\my web\a.jpg" alt="Your Photo" class="imghome"><br><br>
      
     <!-- SOCIAL LINK -->
         <div class="social-links">
@@ -750,59 +959,59 @@ document.querySelectorAll('.view-btn').forEach(button => {
                
             </a>
         </div>
-
+<br><br>
       </div>
     </section>
 
     <!-- About Section -->
-    <section id="about">
-        <h2 class="abth2">About Me</h2>
-        <div class="about-content">
-            <img src="a1.jpg" alt="Your Photo">
+<section id="about">
+    <h2 class="abth2">About Me</h2><br>
+    <div class="about-content">
+        <img src="D:\my web\a1.jpg" class="imghome" alt="Your Photo">
+        <p style="font-family:Cursive, Helvetica, sans-serif; font-size:22px;"> Hi, I'm <strong>Anubhav Gupta</strong>, a passionate and dedicated web developer with a strong foundation in modern programming languages and technologies.
+            I specialize in creating dynamic, user-friendly, and innovative web solutions that bring ideas to life.
 
-<p> Hi, I'm <strong>Anubhav Gupta</strong>, a passionate and dedicated web developer                                                                       with a strong foundation in modern programming languages and technologies.
- I specialize in creating dynamic, user-friendly, and innovative web solutions that bring ideas to life.
+            With expertise in HTML, CSS, JavaScript, C, C++, Java, .NET, Visual Basic, C#, and database management systems, I have a versatile skill set to design and develop seamless web experiences. My goal is to build websites and applications that not only look great but also perform efficiently.
 
-With expertise in HTML, CSS, JavaScript, C, C++, Java, .NET, Visual Basic, C#, and database management systems, I have a versatile skill set to design and develop seamless web experiences. My goal is to build websites and applications that not only look great but also perform efficiently.
-
-Whether it's developing responsive front-end designs or ensuring robust back-end functionality, I thrive on solving challenges and delivering results that exceed expectations. I am always eager to learn and stay updated with the latest industry trends to keep my work at the cutting edge.</p>
-        </div>
-    </section>
+            Whether it's developing responsive front-end designs or ensuring robust back-end functionality, I thrive on solving challenges and delivering results that exceed expectations. I am always eager to learn and stay updated with the latest industry trends to keep my work at the cutting edge.
+        </p>
+    </div>
+</section>
 
     <!-- Skills Section -->
     <section class="sk" id="skills">
 <div class="D">
-<h2>SKILLS</h2>
+<h2>SKILLS</h2><br>
 
 <div class="border-hover">
   <div class="container">
    <div class="choice1">
-    <img class="imgs" src="html.png" alt>
+    <img class="imgs" src="D:\my web\html.png" alt>
      <p class="para">HTML</p>
   </div>
 
   <div class="choice1">
-   <img class="imgs" src="css.png" alt>
+   <img class="imgs" src="D:\my web\css.png" alt>
     <p class="para">CSS</p>
   </div>
   <div class="choice1">
-  <img class="imgs" src="js.png" alt>
+  <img class="imgs" src="D:\my web\js.png" alt>
    <p class="para">JAVA SCRIPT</p>
   </div>
  <div class="choice1">
-  <img class="imgs" src="java.png" alt>
+  <img class="imgs" src="D:\my web\java.png" alt>
    <p class="para">JAVA</p>
   </div>
  <div class="choice1">
-  <img class="imgs" src="sql.png" alt>
+  <img class="imgs" src="D:\my web\sql.png" alt>
    <p class="para">MY SQL</p>
  </div>
  <div class="choice1">
-  <img class="imgs" src="c.png" alt>
+  <img class="imgs" src="D:\my web\c.png" alt>
    <p class="para">C LANGUAGE</p>
  </div>
  <div class="choice1">
-  <img class="imgs" src="asp.png"  alt>
+  <img class="imgs" src="D:\my web\asp.png"  alt>
    <p class="para">ASP .NET</p>
  </div>
 </div>
@@ -812,7 +1021,7 @@ Whether it's developing responsive front-end designs or ensuring robust back-end
     <!-- Education -->
     <!-- Education Section -->
 <section id="education">
-    <h2>Education</h2>
+    <h2>Education</h2><br>
     <div class="education-timeline">
         <div class="education-item">
             <div class="education-year">Currently Pursuing</div>
@@ -854,17 +1063,17 @@ Whether it's developing responsive front-end designs or ensuring robust back-end
         </div>
     </div>
 </section>
-
+<br><br>
     <!-- Projects Section -->
     <section id="projects">
-        <h2 class="proh2">My Projects</h2><br>
+        <h2 class="proh2">My Projects</h2><br><br>
         <div class="projects-gallery">
             <div class="project">
-                <img src="Screenshot 2025-03-20 220151.png" alt="Project 1">
+                <img src="C:\Users\varsh\Pictures\Screenshots\Screenshot 2025-03-20 220151.png" alt="Project 1">
                 <p><b>ONLINE TEACHING</b><br> </p><p> A website I built using ASP.NET and C #.</p><br><br>
 <button class="view-btn">View</button>            </div>
             <div class="project">
-            <img src="Screenshot 2025-03-20 221238.png" alt="Project 2">
+            <img src="C:\Users\varsh\Pictures\Screenshots\Screenshot 2025-03-20 221238.png" alt="Project 2">
             <p><b>Calculator</b><br> </p><p> A web application built using HTML and CSS , Java Script.</p><br><br>
 <button class="view-btn"><a href="https://anubhav1121.github.io/Calculator/" >View</a></button>
         </div>
@@ -894,35 +1103,34 @@ Whether it's developing responsive front-end designs or ensuring robust back-end
         <div id="feedback-response"></div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="footer" >
-<div>
- <br>
- <img src="1738768366238.jpg" alt="Avatar"class="imgf">
- <br>
-</div>
- <div class="con">
- <br><br><br>
- <h2>CONTACT</h2>
- <h3> +91 9758093812 </h3><br>
- <h3> iamanubhav82@gmail.com</h3>
- </div>
+<!-- Contact Section -->
+<section class="footer">
+  <div class="footer-content">
+    <div class="img-container"><br>
+      <img src="C:\Users\varsh\OneDrive\Documents\Pictures\1738768366238.jpg" alt="Avatar" class="imgf"><br>
+    </div>
+    <div class="contact-info">
+      <h2>CONTACT</h2>
+      <h3><i class="fas fa-phone-alt"></i> +91 9758093812</h3><br>
+      <h3><i class="fas fa-envelope"></i> iamanubhav82@gmail.com</h3>
+    </div><br>
+    <div class="useful-links">
+      <h2>Useful Links</h2>
+      <h3><a href="#home">Home</a></h3>
+      <h3><a href="#about">About</a></h3>
+      <h3><a href="#skills">Skills</a></h3>
+      <h3><a href="#education">Education</a></h3>
+      <h3><a href="#projects">Projects</a></h3>
+    </div>
+  </div>
+</section>
 
- <div class="f">
- <br><br><br>
- <h2>Useful Links</h2>
- <h3><a href="#home">Home</h3>
- <h3><a href="#about">About</h3>
- <h3><a href="#skill">Skill</h3>
- <h3><a href="#education">Education</h3>
- <h3><a href="#project">Project</h3>
- </div>
-
-</section > 
 <footer class="black">
-<div class="con1"><br>
-<h2>@2025 www.Anubhavgupta.in . All Rigths Reserved.</h2></div>
-</footer> 
+  <div class="footer-bottom">
+    <h2>@2025 www.Anubhavgupta.in. All Rights Reserved.</h2>
+  </div>
+</footer>
+ 
 <script>
         // JavaScript to toggle the mobile menu and overlay
         const toggleButton = document.querySelector('.mobile-menu-toggle');
@@ -948,6 +1156,65 @@ Whether it's developing responsive front-end designs or ensuring robust back-end
             mobileNav.classList.remove('active');
             overlay.classList.remove('active');
         });
+
+ // Feedback Form Handling
+        const feedbackForm = document.getElementById('feedback-form');
+        const feedbackResponse = document.getElementById('feedback-response');
+
+        feedbackForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const name = feedbackForm.name.value;
+            const email = feedbackForm.email.value;
+            const message = feedbackForm.message.value;
+
+            // Simple validation (check if fields are not empty)
+            if (name && email && message) {
+                feedbackResponse.textContent = 'Thank you for your feedback!';
+                feedbackResponse.style.color = 'green';
+            } else {
+                feedbackResponse.textContent = 'Please fill in all the fields.';
+                feedbackResponse.style.color = 'red';
+            }
+
+            // Reset form after submission
+            feedbackForm.reset();
+        });
+
+// Number of stars to generate
+const numberOfStars = 100; // You can adjust this value
+const homeSection = document.getElementById('home');
+
+// Function to create a star
+function createStar() {
+    const star = document.createElement('div');
+    star.classList.add('star');
+
+    // Randomize the position of the star
+    const positionX = Math.random() * 100;  // Random horizontal position (from 0% to 100% width)
+    const positionY = Math.random() * 100;  // Random vertical start position (from 0% to 100% height)
+
+    // Randomize the falling speed of the star (animation duration)
+    const duration = Math.random() * (5 - 2) + 2; // Randomize between 2s and 5s
+
+    // Optional: Randomize the size of the stars
+    const size = Math.random() * (10 - 6) + 6; // Size between 6px and 10px
+    star.style.width = `${size}px`;
+    star.style.height = `${size}px`;
+
+    // Apply random positioning and animation duration
+    star.style.left = `${positionX}vw`;  // Position from the left
+    star.style.top = `${positionY}vh`;  // Position from the top
+    star.style.animationDuration = `${duration}s`; // Set random animation duration
+
+    // Append star to home section
+    homeSection.appendChild(star);
+}
+
+// Create multiple stars
+for (let i = 0; i < numberOfStars; i++) {
+    createStar();
+}
+
     </script>
     <script src="scripts.js"></script>
 </body>
